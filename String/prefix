@@ -1,0 +1,37 @@
+public class Solution {
+    public static String commonPrefix(String str1, String str2) {
+        
+        // Storing the minimum length
+        int minLength = Math.min(str1.length(), str2.length());
+
+        // A string to store the longest common prefix
+        String ans = "";
+
+        for (int idx = 0; idx < minLength; ++idx) {
+            if (str1.charAt(idx) == str2.charAt(idx)) {
+                ans += str1.charAt(idx);
+            } else {
+                break;
+            }
+        }
+
+        return ans;
+    }
+
+    public static String commonPrefixUtil(String[] arr, int start, int end) {
+        if (start == end) {
+            return arr[start];
+        }
+        int mid = (start + end) / 2;
+        String left = commonPrefixUtil(arr, start, mid);
+        String right = commonPrefixUtil(arr, mid + 1, end);
+        String ans = commonPrefix(left, right);
+
+        return ans;
+    }
+    public static String longestCommonPrefix(String[] arr, int n) {
+        String longestPrefix = commonPrefixUtil(arr, 0, n - 1);
+
+        return longestPrefix;
+    }
+}
