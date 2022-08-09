@@ -1,0 +1,22 @@
+import java.util.Arrays;
+
+public class Solution {
+	public static boolean areAnagram(String str1, String str2) {
+		// Get lengths of both strings.
+		int n1 = str1.length();
+		int n2 = str2.length();
+		if (n1 != n2) {
+			return false;
+		}
+		char tempArray1[] = str1.toCharArray();
+		char tempArray2[] = str2.toCharArray();
+		Arrays.sort(tempArray1);
+		Arrays.sort(tempArray2);
+		for (int i = 0; i < n1; i++) {
+			if (tempArray1[i] != tempArray2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+}
