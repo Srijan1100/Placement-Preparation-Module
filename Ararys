@@ -1,5 +1,5 @@
 import java.util.*;
-class TUF{
+class abc{
 static void setZeroes(int [][] matrix) {
   int r = matrix.length, c = matrix[0].length;
   int a[]=new int[r];
